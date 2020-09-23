@@ -1,15 +1,15 @@
-#Program author: steftim
+#Program author: Ficus (aka @steftim)
 pkgname=libyandexmusic
 pkgver=0.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Little yandex music library written in C"
 arch=('x86_64')
 url='https://github.com/steftim/rlpc'
 license=('unknown')
 depends=('json-c' 'curl')
 makedepends=()
-source=("${url}/raw/arch-pkgbuild/$pkgname/$pkgname.so")
-sha256sums=('b0ae20362701cc4a440793b85b755d38beb4c3499daf2ddc76be4995eeb56754')
+source=("${url}/raw/master/$pkgname.so")
+sha256sums=('e2898344d78e7c1331efcbbdb52f1c652266bdeb384443be17094dbbae0194e1')
 
 #prepare() {
 #}

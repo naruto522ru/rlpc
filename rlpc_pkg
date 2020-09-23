@@ -2,7 +2,7 @@
 _usage_all_streams=N
 pkgname=rlpc
 pkgver=04
-pkgrel=1
+pkgrel=2
 pkgdesc="music player"
 arch=('x86_64')
 url='https://github.com/steftim/rlpc'
