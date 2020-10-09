@@ -1,23 +1,32 @@
 #Program author: Ficus (aka @steftim)
+_usage_all_streams=N
 pkgname=libyandexmusic
 pkgver=0.2
 pkgrel=2
 pkgdesc="Little yandex music library written in C"
 arch=('x86_64')
-url='https://github.com/steftim/rlpc'
-license=('unknown')
+url='https://github.com/steftim/libyandexmusic'
+license=('GPL2')
 depends=('json-c' 'curl')
-makedepends=()
-source=("${url}/raw/master/$pkgname.so")
-sha256sums=('e2898344d78e7c1331efcbbdb52f1c652266bdeb384443be17094dbbae0194e1')
+makedepends=('git' 'cmake')
+source=("git+${url}.git")
+sha256sums=('SKIP')
 
-#prepare() {
-#}
+prepare() {
+cd "$srcdir/$pkgname/"
+}
 
-#build() {
-#}
+build() {
+        cd $pkgname/
+        cmake ./
+if [[ "$_usage_all_streams" == y || "$_usage_all_streams" == Y ]]; then
+        make -j$(($(nproc)+1))
+elif [[ "$_usage_all_streams" == n || "$_usage_all_streams" == N ]]; then
+        make -j1
+fi
+}
 
 package() {
 	install -dm 755 "$pkgdir/usr/lib"
-        install -Dm 755 "$srcdir/$pkgname.so" "$pkgdir/usr/lib/"
+        install -Dm 755 "$srcdir/$pkgname/$pkgname.so" "$pkgdir/usr/lib"
 }
